@@ -29,3 +29,76 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    opacity: 1;
+    text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff;
+  }
+  20%, 24%, 55% {
+    opacity: 0.6;
+    text-shadow: none;
+  }
+}
+
+.animate-flicker {
+  animation: flicker 2.5s infinite alternate;
+}
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    opacity: 1;
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff;
+  }
+  20%, 24%, 55% {
+    opacity: 0.6;
+    text-shadow: none;
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(255,255,255,0.2),
+                0 0 40px rgba(255,255,255,0.1);
+  }
+  50% {
+    box-shadow: 0 0 35px rgba(255,255,255,0.4),
+                0 0 60px rgba(255,255,255,0.2);
+  }
+}
+
+.animate-flicker {
+  animation: flicker 3s infinite alternate;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 6s infinite ease-in-out;
+}
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    opacity: 1;
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff;
+  }
+  20%, 24%, 55% {
+    opacity: 0.6;
+    text-shadow: none;
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    text-shadow: 0 0 10px rgba(255,255,255,0.7),
+                 0 0 20px rgba(255,255,255,0.5);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(255,255,255,1),
+                 0 0 40px rgba(255,255,255,0.7);
+  }
+}
+
+.animate-flicker {
+  animation: flicker 3s infinite alternate;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 4s infinite ease-in-out;
+}

@@ -2,26 +2,29 @@
 
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
+import Navbar from "./components/Navbar";
+import Link from "next/link";
 
-// Import 3D background dynamically
+// 3D background dynamically loaded
 const ThreeBackground = dynamic(() => import("./components/ThreeBackground"), {
   ssr: false,
 });
 
 export default function Home() {
   return (
-    <main className="relative flex min-h-screen flex-col items-center justify-center bg-gradient-to-br from-black via-neutral-900 to-white overflow-hidden">
-      
+    <main className="relative flex min-h-screen flex-col items-center justify-center bg-gradient-to-br from-black via-neutral-900 to-gray-900 overflow-hidden">
+      <Navbar />
+
       {/* 3D Futuristic Background */}
       <div className="absolute inset-0 z-0 opacity-70">
         <ThreeBackground />
       </div>
 
       {/* Overlay for depth */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-white/40 z-5" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-white/20 z-5" />
 
       {/* Foreground Content */}
-      <div className="relative z-10 text-center">
+      <div className="relative z-10 text-center mt-24">
         {/* Title */}
         <motion.h1
           initial={{ opacity: 0, y: -50 }}
@@ -43,13 +46,18 @@ export default function Home() {
         </motion.p>
 
         {/* Call-to-Action */}
-        <motion.button
+        <motion.div
           whileHover={{ scale: 1.15, boxShadow: "0px 0px 20px rgba(255,255,255,0.7)" }}
           whileTap={{ scale: 0.95 }}
-          className="mt-10 rounded-2xl bg-white/90 px-8 py-3 text-lg font-semibold text-black shadow-xl hover:bg-white"
+          className="mt-10 inline-block"
         >
-          Enter the Future 🚀
-        </motion.button>
+          <Link
+            href="/future"
+            className="rounded-2xl bg-white/90 px-8 py-3 text-lg font-semibold text-black shadow-xl hover:bg-white"
+          >
+            Enter the Future 🚀
+          </Link>
+        </motion.div>
       </div>
     </main>
   );
